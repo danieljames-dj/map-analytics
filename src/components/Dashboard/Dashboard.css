@@ -1,0 +1,10 @@
+.dashboard {
+	width: 400px;
+	background-color: #0D1320;
+	color: white;
+	padding-top: 20px;
+}
+
+.checkbox {
+	margin-right: 5px;
+}
