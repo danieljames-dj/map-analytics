@@ -66,6 +66,7 @@ function Map(props) {
 					const femaleCount = areaObj.users.filter(user => user.gender === 'F').length;
 					const genderScore = (100 * Math.min(maleCount, femaleCount) / Math.max(maleCount, femaleCount)).toFixed(2);
 					return (
+						areaObj.count &&
 						(userCount >= props.filters.displayUsers.min && userCount <= props.filters.displayUsers.max) &&
 						(genderScore >= props.filters.genderScore.min && genderScore <= props.filters.genderScore.max) &&
 						<Polygon key={areaId.toString()} pathOptions={{
@@ -73,7 +74,7 @@ function Map(props) {
 							weight: 1,
 							color: 'black',
 							fillOpacity: 0.9,
-					}} positions={areaObj.polygonCoordinates[0].map(v => [v[1], v[0]])}>
+						}} positions={areaObj.polygonCoordinates[0].map(v => [v[1], v[0]])}>
 						<Popup>
 							<b>{areaObj.name}</b><br/>
 							Pincode: {areaObj.pinCode}<br/>
